@@ -18,7 +18,7 @@ namespace OpenTK
         [STAThread]
         static void Main(string[] args)
         {
-            _game = new GameWindow {WindowState = WindowState.Fullscreen};
+            _game = new GameWindow {};
 
             _game.Load += (sender, e) =>
             {
@@ -42,9 +42,22 @@ namespace OpenTK
             _game.RenderFrame += (sender, e) =>
             {
                 // render graphics
-                GL.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+                GL.ClearColor(0f, 0f, 0f, 1f);
                 GL.Clear(ClearBufferMask.ColorBufferBit);
+
+                GL.Rotate(100 * e.Time, 0, 1, 0);
+                GL.Begin(PrimitiveType.TriangleStrip);
+                {
+                    GL.Color3(1d, 0, 0);
+                    GL.Vertex3(-0.5, 0, 0);
+                    GL.Color3(0d, 1, 0);
+                    GL.Vertex3(0.5, 0, 0);
+                    GL.Color3(0d, 0, 1);
+                    GL.Vertex3(0, 0.5, 0);
+                }
                 GL.End();
+
+                GL.Finish();
 
                 _game.SwapBuffers();
             };

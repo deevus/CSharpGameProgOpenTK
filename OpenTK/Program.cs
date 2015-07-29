@@ -27,8 +27,8 @@ namespace OpenTK
             Game.ClientSize = new Size(1280, 720);
 
             //load textures
-            TextureManager.LoadTexture("face", "Assets/face.tif");
-            TextureManager.LoadTexture("face_alpha", "Assets/face_alpha.tif");
+            TextureManager.LoadTexture("face", "./Assets/face.tif");
+            TextureManager.LoadTexture("face_alpha", "./Assets/face_alpha.tif");
 
             //create state system
             System.AddState("splash", new SplashScreenState(System));
@@ -62,7 +62,7 @@ namespace OpenTK
                 if (Game.Keyboard[Key.AltRight] && Game.Keyboard[Key.Enter])
                 {
                     if (Game.WindowState == WindowState.Normal)
-                        Game.WindowState = WindowState.Fullscreen; 
+                        Game.WindowState = WindowState.Fullscreen;
                     else
                         Game.WindowState = WindowState.Normal;
                 }

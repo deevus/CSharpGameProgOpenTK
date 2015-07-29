@@ -1,13 +1,13 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using NUnit.Framework;
 using OpenTK.GameStructure;
 
 namespace OpenTK.Tests
 {
-    [TestClass]
+    [TestFixture]
     public class TestStateSystem
     {
-        [TestMethod]
+        [Test]
         public void TestAddedStateExists()
         {
             var stateSystem = new StateSystem();
